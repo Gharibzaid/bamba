@@ -1,0 +1,770 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Baby Captain Tour & Safaris - Zanzibar's Premier Tour Operator</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        /* Navigation */
+        nav {
+            background-color: rgba(0, 0, 0, 0.8);
+            padding: 1rem;
+            position: fixed;
+            width: 100%;
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        nav.scrolled {
+            background-color: rgba(0, 0, 0, 0.95);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        nav .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            color: white;
+            font-size: 1.5rem;
+            font-weight: bold;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .logo img {
+            height: 40px;
+            border-radius: 50%;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            border-radius: 0.25rem;
+            transition: all 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+            transform: translateY(-2px);
+        }
+
+        .book-btn {
+            background-color: #00a8cc;
+            color: white;
+            padding: 0.5rem 1.5rem;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+        }
+
+        .book-btn:hover {
+            background-color: #0089a7;
+            transform: translateY(-2px);
+        }
+
+        /* Hero Section */
+        .hero {
+            padding-top: 80px;
+            min-height: calc(100vh - 80px);
+            position: relative;
+            color: white;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background:url(starfish/utu.jpg);
+            background-size: cover;
+            background-position: fit;
+            background-attachment: fixed;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            padding: 2rem;
+            animation: fadeIn 1s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero-content h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .hero-content p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+        }
+
+        .btn {
+            padding: 0.8rem 2rem;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary {
+            background-color: #00a8cc;
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background-color: #0089a7;
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            color: white;
+            border: 2px solid white;
+        }
+
+        .btn-secondary:hover {
+            background-color: white;
+            color: #333;
+            transform: translateY(-2px);
+        }
+
+        /* Featured Tours Section */
+        .featured-tours {
+            padding: 4rem 0;
+            background:rgb(248, 244, 244);
+
+        }
+      
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: #333;
+            margin-bottom: 1rem;
+        }
+
+        .section-subtitle {
+            color: #666;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .tour-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .tour-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .tour-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .tour-image {
+            position: relative;
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .tour-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .tour-card:hover .tour-image img {
+            transform: scale(1.1);
+        }
+
+        .tour-badge {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background-color: #00a8cc;
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+            font-size: 0.9rem;
+        }
+
+        .tour-duration {
+            position: absolute;
+            bottom: 1rem;
+            left: 1rem;
+            background-color: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+            font-size: 0.9rem;
+        }
+
+        .tour-content {
+            padding: 1.5rem;
+        }
+
+        .tour-content h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: #333;
+        }
+
+        .tour-meta {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1rem;
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        .tour-meta span {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .tour-features {
+            list-style: none;
+            margin-bottom: 1.5rem;
+        }
+
+        .tour-features li {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 0.5rem;
+            color: #666;
+        }
+
+        .tour-features i {
+            color: #00a8cc;
+        }
+
+        .tour-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 1rem;
+            border-top: 1px solid #eee;
+        }
+
+        .tour-price {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .price {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .per-person {
+            font-size: 0.9rem;
+            color: #666;
+        }
+
+        /* Why Choose Us Section */
+        .why-choose-us {
+            padding: 4rem 0;
+            background-color: white;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .feature-card {
+            text-align: center;
+            padding: 2rem;
+            background: #f9f9f9;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .feature-card i {
+            font-size: 2.5rem;
+            color: #00a8cc;
+            margin-bottom: 1rem;
+        }
+
+        .feature-card h3 {
+            font-size: 1.5rem;
+            color: #333;
+            margin-bottom: 1rem;
+        }
+
+        .feature-card p {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        /* Testimonials Section */
+        .testimonials {
+            padding: 4rem 0;
+            background-color: #f9f9f9;
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .testimonial-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .testimonial-content {
+            margin-bottom: 1.5rem;
+        }
+
+        .testimonial-content p {
+            color: #666;
+            line-height: 1.6;
+            font-style: italic;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .testimonial-author img {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        .testimonial-author h4 {
+            color: #333;
+            margin-bottom: 0.25rem;
+        }
+
+        .rating {
+            color: #ffd700;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            padding: 4rem 0;
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)),
+                        url('mchanganyiko/cta-bg.jpg');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            text-align: center;
+        }
+
+        .cta-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .cta-content h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .cta-content p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #333;
+            color: white;
+            padding: 4rem 0 0;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .footer-section h3 {
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+        }
+
+        .footer-section p {
+            margin-bottom: 0.5rem;
+            color: #ccc;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .social-links a {
+            color: white;
+            font-size: 1.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover {
+            color: #00a8cc;
+            transform: translateY(-2px);
+        }
+
+        .copyright {
+            text-align: center;
+            padding: 2rem 0;
+            margin-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        /* WhatsApp Float */
+        .need-help-btn {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            background-color: #25d366;
+            color: white;
+            padding: 1rem;
+            border-radius: 50%;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+            z-index: 1000;
+        }
+
+        .need-help-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .need-help-btn i {
+            font-size: 1.5rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+            }
+
+            .story-content {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="container">
+            <a href="index.html" class="logo">
+                <img src="logo/BAMBA.png" alt="Logo" loading="lazy" />
+          <span class="logo-text">BAMBA BEACH</span>
+            </a>
+            <div class="nav-links">
+                <a href="index.html" class="active">Home</a>
+                <a href="services.html">Tours</a>
+                <a href="about.html">About Us</a>
+                <a href="gallery.html">Gallery</a>
+                <a href="contact.html">Contact</a>
+                <a href="booking.html" class="book-btn">Book Now</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Bamba beach spiritual reatreats</h1>
+            <p>Experience unforgettable events with us </p>
+            <div class="hero-buttons">
+                <a href="services.html" class="btn btn-primary">Explore Tours</a>
+                <a href="contact.html" class="btn btn-secondary">Book Now</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Tours -->
+    <section class="featured-tours">
+        <div class="container">
+            <div class="section-title">
+                <h2>Popular Tours</h2>
+                <p class="section-subtitle">Discover our most sought-after experiences in BAMBA BEACH</p>
+            </div>
+            
+            <div class="tour-grid">
+                <!-- Safari Blue -->
+                <div class="tour-card">
+                    <div class="tour-image">
+                        <img src="safari blue/download.jpg" alt="Safari Blue Adventure">
+                        <div class="tour-badge">Best Seller</div>
+                        <div class="tour-duration"><i class="fas fa-clock"></i> 8 hours</div>
+                    </div>
+                    <div class="tour-content">
+                        <h3>Safari Blue Zanzibar</h3>
+                        <div class="tour-meta">
+                            <span><i class="fas fa-users"></i> Max 20 people</span>
+                            <span><i class="fas fa-star"></i> 5.0</span>
+                            <span><i class="fas fa-map-marker-alt"></i> South Coast</span>
+                        </div>
+                        <p>Full-day adventure including snorkeling, swimming, and a delicious seafood lunch on a sandbank.</p>
+                        <ul class="tour-features">
+                            <li><i class="fas fa-check"></i> Traditional dhow boat</li>
+                            <li><i class="fas fa-check"></i> Multiple snorkeling spots</li>
+                            <li><i class="fas fa-check"></i> Seafood lunch</li>
+                            <li><i class="fas fa-check"></i> All equipment provided</li>
+                        </ul>
+                        <div class="tour-footer">
+                            <div class="tour-price">
+                                <span class="price">$75</span>
+                                <span class="per-person">Per person</span>
+                            </div>
+                            <a href="contact.html" class="btn btn-primary">Book Now</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Mnemba Island -->
+                <div class="tour-card">
+                    <div class="tour-image">
+                        <img src="mnemba full day/SWIMING.jpg" alt="swimming">
+                        <div class="tour-badge">Featured</div>
+                        <div class="tour-duration"><i class="fas fa-clock"></i> 6 hours</div>
+                    </div>
+                    <div class="tour-content">
+                        <h3>Mnemba Island full day trip</h3>
+                        <div class="tour-meta">
+                            <span><i class="fas fa-users"></i> Max 15 people</span>
+                            <span><i class="fas fa-star"></i> 4.9</span>
+                            <span><i class="fas fa-map-marker-alt"></i> East Coast</span>
+                        </div>
+                        <p>Experience the crystal clear waters and vibrant marine life of Mnemba Island.</p>
+                        <ul class="tour-features">
+                            <li><i class="fas fa-check"></i> Snorkeling spots</li>
+                            <li><i class="fas fa-check"></i> Beach relaxation</li>
+                            <li><i class="fas fa-check"></i> Lunch included</li>
+                            <li><i class="fas fa-check"></i> Hotel pickup</li>
+                        </ul>
+                        <div class="tour-footer">
+                            <div class="tour-price">
+                                <span class="price">$100</span>
+                                <span class="per-person">Per person</span>
+                            </div>
+                            <a href="contact.html" class="btn btn-primary">Book Now</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Prison Island -->
+                <div class="tour-card">
+                    <div class="tour-image">
+                        <img src="prison island/download (1).jpg" alt="Prison Island Tour">
+                        <div class="tour-badge">Popular</div>
+                        <div class="tour-duration"><i class="fas fa-clock"></i> 4 hours</div>
+                    </div>
+                    <div class="tour-content">
+                        <h3>Prison Island Tour</h3>
+                        <div class="tour-meta">
+                            <span><i class="fas fa-users"></i> Max 15 people</span>
+                            <span><i class="fas fa-star"></i> 4.8</span>
+                            <span><i class="fas fa-map-marker-alt"></i> Stone Town</span>
+                        </div>
+                        <p>Visit the historic Prison Island and meet the giant tortoises. Perfect for history lovers.</p>
+                        <ul class="tour-features">
+                            <li><i class="fas fa-check"></i> Historical tour</li>
+                            <li><i class="fas fa-check"></i> Giant tortoise encounter</li>
+                            <li><i class="fas fa-check"></i> Snorkeling opportunity</li>
+                            <li><i class="fas fa-check"></i> Refreshments included</li>
+                        </ul>
+                        <div class="tour-footer">
+                            <div class="tour-price">
+                                <span class="price">$50</span>
+                                <span class="per-person">Per person</span>
+                            </div>
+                            <a href="contact.html" class="btn btn-primary">Book Now</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center" style="margin-top: 50px; text-align: center;">
+                <a href="services.html" class="btn btn-primary">View All Tours</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us -->
+    <section class="why-choose-us">
+        <div class="container">
+            <div class="section-title">
+                <h2>Why Choose Us</h2>
+                <p class="section-subtitle">Experience the best of Zanzibar with our expert team</p>
+            </div>
+            
+            <div class="features-grid">
+                <div class="feature-card">
+                    <i class="fas fa-user-tie"></i>
+                    <h3>Expert Guides</h3>
+                    <p>Our experienced guides ensure a safe and informative tour experience.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <i class="fas fa-shield-alt"></i>
+                    <h3>Safety First</h3>
+                    <p>Your safety is our top priority. All our equipment meets international standards.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <i class="fas fa-dollar-sign"></i>
+                    <h3>Best Value</h3>
+                    <p>Competitive prices with no hidden costs. Quality service guaranteed.</p>
+                </div>
+               
+    </section>
+
+    <!-- Call to Action -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Ready for Your Adventure?</h2>
+                <p>Book your tour now and create unforgettable memories</p>
+                <a href="services.html" class="btn btn-primary">Book Your Tour</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>BAMBA BEACH</h3>
+                <p>Your trusted partner for unforgettable Events.</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="https://wa.me 255718793636"><i class="fab fa-whatsapp"></i></a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h3>Contact Us</h3>
+                <p><i class="fas fa-map-marker-alt"></i> Kigamboni, DAR ES SALAAM</p>
+                <p><i class="fas fa-phone"></i> +255 718 793 636</p>
+                <p><i class="fas fa-envelope"></i> gharibzaid21@gmail.com</p>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <p><a href="index.html">Home</a></p>
+                <p><a href="services.html">Tours</a></p>
+                <p><a href="about.html">About Us</a></p>
+                <p><a href="gallery.html">Gallery</a></p>
+                <p><a href="contact.html">Contact</a></p>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2025 BAMBA BEACH.</p>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Float -->
+    <a href="https://wa.me/255718793636" class="need-help-btn">
+        <i class="fab fa-whatsapp"></i>
+        Need Help?
+    </a>
+
+    <script>
+        // Navbar scroll effect
+        window.addEventListener('scroll', function() {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 50) {
+                nav.classList.add('scrolled');
+            } else {
+                nav.classList.remove('scrolled');
+            }
+        });
+    </script>
+</body>
+</html> 
